@@ -1,0 +1,19 @@
+local opt = vim.opt
+
+opt.wrap = true -- Rompe las líneas hacia abajo que sean más largas que el ancho de pantalla
+opt.linebreak = true -- Asegura de romper en palabras enteras y no por letras
+opt.syntax = "enable" -- Resalta el código
+opt.number = true -- Muestra números de línea
+opt.relativenumber = true -- Números relativos
+opt.clipboard = "unnamedplus" -- Sincronización de portapapeles
+opt.ignorecase = true -- Búsqueda insensible a mayúsculas
+opt.smartcase = true -- ... a menos que se escriba una mayúscula
+opt.termguicolors = true -- Activa colores reales
+opt.scrolloff = 5 -- Mantiene líneas de margen al hacer scroll
+opt.updatetime = 50 -- Hace que la interfaz se sienta más rápida
+opt.tabstop = 2 -- Valor de tabulación en espacios
+opt.shiftwidth = 2 -- Identación automática
+opt.expandtab = true -- Convierte tabs en espacios
+opt.softtabstop = 2 -- Comportamiento del tab al editar
+opt.winblend = 0 -- Quita cualquier tipo de transparencia
+opt.pumblend = 0 -- ... en las ventanas
