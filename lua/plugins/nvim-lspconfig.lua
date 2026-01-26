@@ -34,7 +34,7 @@ return {
 			ensure_installed = {
 				"astro", -- Astro
 				"bashls", -- Bash
-				"clangd", -- C
+				"clangd", -- C - C++
 				"omnisharp", -- C#
 				"lua_ls", -- Lua
 				"pyright", -- Python
@@ -42,9 +42,34 @@ return {
 				"jsonls", -- JSON
 				"cssls", -- CSS
 				"html", -- HTML
+				"marksman", -- MD
 			},
 			automatic_installation = true,
 			handlers = {
+				-- Handler para C - C++
+				["clangd"] = function()
+					local clangd_capabilities = capabilities
+					clangd_capabilities.offsetEncoding = { "utf-16" }
+					lspconfig.clangd.setup({
+						on_attach = on_attach,
+						capabilities = clangd_capabilities,
+						cmd = {
+							"clangd",
+							"--background-index",
+							"--clang-tidy",
+							"--header-insertion=iwyu",
+							"--completion-style=detailed",
+							"--function-arg-placeholders",
+							"--fallback-style=llvm",
+						},
+						init_options = {
+							usePlaceholders = true,
+							completeUnimported = true,
+							clangdFileStatus = true,
+						},
+					})
+				end,
+
 				-- El handler por defecto
 				function(server_name)
 					lspconfig[server_name].setup({

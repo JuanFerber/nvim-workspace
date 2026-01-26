@@ -8,6 +8,7 @@ return {
 				astro = { "prettier" },
 				bash = { "shellharden", "shfmt" },
 				c = { "clang-format" },
+				cpp = { "clang-format" },
 				cs = { "csharpier" },
 				lua = { "stylua" },
 				python = { "black" },
@@ -18,6 +19,7 @@ return {
 				json = { "prettier" },
 				css = { "prettier" },
 				html = { "prettier" },
+				markdown = { "prettier" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

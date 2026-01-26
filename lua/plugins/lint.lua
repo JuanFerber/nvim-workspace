@@ -7,6 +7,7 @@ return {
 			astro = { "eslint_d" },
 			bash = { "shellcheck" },
 			c = { "cpplint" },
+			cpp = { "cpplint" },
 			lua = { "luacheck" },
 			python = { "ruff" },
 			javascript = { "eslint_d" },
@@ -15,6 +16,7 @@ return {
 			typescriptreact = { "eslint_d" },
 			json = { "jsonlint" },
 			html = { "htmlhint" },
+			markdown = { "markdownlint" },
 		}
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {

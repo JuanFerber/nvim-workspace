@@ -6,6 +6,7 @@
 -- Lua: LSP - Formatter - Linter
 -- Python: LSP - Formatter - Linter
 -- C: LSP - Formatter - Linter
+-- C++: LSP - Formatter - Linter
 -- C#: LSP - Formatter
 -- JSON: LSP - Formatter - Linter
 -- CSS: LSP - Formatter
@@ -23,9 +24,9 @@ return {
 			"shfmt", -- [Formatter] - [Bash]
 			"shellharden", -- [Formatter] - [Bash]
 			"shellcheck", -- [Linter] - [Bash]
-			"clangd", -- [LSP] - [C]
-			"clang-format", -- [Formatter] - [C]
-			"cpplint", -- [Linter] - [C]
+			"clangd", -- [LSP] - [C, C++]
+			"clang-format", -- [Formatter] - [C, C++]
+			"cpplint", -- [Linter] - [C, C++]
 			"omnisharp", -- [LSP] - [C#]
 			"csharpier", -- [Formatter] - [C#]
 			"lua-language-server", -- [LSP] - [Lua]
@@ -40,6 +41,8 @@ return {
 			"css-lsp", -- [LSP] - [CSS]
 			"html-lsp", -- [LSP] - [HTML]
 			"htmlhint", -- [Linter] - [HTML]
+			"marksman", -- [LSP] - [MD]
+			"markdownlint", -- [Linter] - [MD]
 		},
 	},
 	config = function(_, opts)
