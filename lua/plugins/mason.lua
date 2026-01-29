@@ -11,6 +11,8 @@
 -- JSON: LSP - Formatter - Linter
 -- CSS: LSP - Formatter
 -- HTML: LSP - Formatter - Linter
+-- Rust: LSP - Formatter - Linter
+-- TOML: LSP - Formatter - Linter
 
 return {
 	"mason-org/mason.nvim",
@@ -43,6 +45,8 @@ return {
 			"htmlhint", -- [Linter] - [HTML]
 			"marksman", -- [LSP] - [MD]
 			"markdownlint", -- [Linter] - [MD]
+			"rust-analyzer", -- [LSP] - [Rust]
+			"taplo", -- [LSP - Formatter - Linter] - [TOML]
 		},
 	},
 	config = function(_, opts)

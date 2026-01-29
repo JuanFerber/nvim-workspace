@@ -8,6 +8,7 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 		local mason_lspconfig = require("mason-lspconfig")
+		local util = require("lspconfig.util")
 
 		-- 1. Configurar capacidades (para autocompletado)
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -43,6 +44,8 @@ return {
 				"cssls", -- CSS
 				"html", -- HTML
 				"marksman", -- MD
+				"rust_analyzer", -- Rust
+				"taplo", -- TOML
 			},
 			automatic_installation = true,
 			handlers = {
@@ -66,6 +69,32 @@ return {
 							usePlaceholders = true,
 							completeUnimported = true,
 							clangdFileStatus = true,
+						},
+					})
+				end,
+
+				-- Handler para Rust
+				["rust_analyzer"] = function()
+					lspconfig.rust_analyzer.setup({
+						on_attach = on_attach,
+						capabilities = capabilities,
+						filetypes = { "rust" },
+						root_dir = function(fname)
+							local cargo_root = util.root_pattern("Cargo.toml")(fname)
+							return cargo_root
+						end,
+						settings = {
+							["rust-analyzer"] = {
+								cargo = {
+									allFeatures = true,
+								},
+								procMacro = {
+									enable = true,
+								},
+								checkOnSave = {
+									command = "clippy",
+								},
+							},
 						},
 					})
 				end,

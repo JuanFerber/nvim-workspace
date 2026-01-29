@@ -20,6 +20,8 @@ return {
 				css = { "prettier" },
 				html = { "prettier" },
 				markdown = { "prettier" },
+				rust = { "rustfmt" },
+				toml = { "taplo" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

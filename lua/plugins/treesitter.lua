@@ -30,6 +30,7 @@ return {
 				"markdown_inline",
 				"nginx",
 				"python",
+				"rust",
 				"query",
 				"regex",
 				"toml",
