@@ -6,6 +6,10 @@ return {
 	},
 	config = function()
 		local rmd = require("render-markdown")
-		rmd.setup({})
+		rmd.setup({
+			latex = {
+				enabled = false,
+			},
+		})
 	end,
 }
