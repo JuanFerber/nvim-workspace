@@ -13,6 +13,7 @@
 -- HTML: LSP - Formatter - Linter
 -- Rust: LSP - Formatter - Linter
 -- TOML: LSP - Formatter - Linter
+-- YAML: LSP - Formatter - Linter
 
 return {
 	"mason-org/mason.nvim",
@@ -47,6 +48,8 @@ return {
 			"markdownlint", -- [Linter] - [MD]
 			"rust-analyzer", -- [LSP] - [Rust]
 			"taplo", -- [LSP - Formatter - Linter] - [TOML]
+			"yaml-language-server", -- [LSP] - [YAML]
+			"yamllint", -- [Linter] - [YAML]
 		},
 	},
 	config = function(_, opts)

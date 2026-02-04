@@ -46,6 +46,7 @@ return {
 				"marksman", -- MD
 				"rust_analyzer", -- Rust
 				"taplo", -- TOML
+				"yamlls", -- YAML
 			},
 			automatic_installation = true,
 			handlers = {
@@ -94,6 +95,27 @@ return {
 								checkOnSave = {
 									command = "clippy",
 								},
+							},
+						},
+					})
+				end,
+
+				-- Handler para YAML
+				["yamlls"] = function()
+					lspconfig.yamlls.setup({
+						on_attach = on_attach,
+						capabilities = capabilities,
+						settings = {
+							yaml = {
+								schemaStore = {
+									enable = true,
+									url = "https://www.schemastore.org/api/json/catalog.json",
+								},
+								format = {
+									enable = false,
+								},
+								validate = true,
+								completion = true,
 							},
 						},
 					})
