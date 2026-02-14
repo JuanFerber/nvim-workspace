@@ -87,7 +87,7 @@ return {
 						settings = {
 							["rust-analyzer"] = {
 								cargo = {
-									allFeatures = true,
+									allFeatures = false,
 								},
 								procMacro = {
 									enable = true,
