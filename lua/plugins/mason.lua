@@ -5,13 +5,13 @@
 -- Bash: LSP - Formatter x 2 - Linter
 -- Lua: LSP - Formatter - Linter
 -- Python: LSP - Formatter - Linter
--- C: LSP - Formatter - Linter
--- C++: LSP - Formatter - Linter
+-- C: LSP - Formatter - Linter - DAP
+-- C++: LSP - Formatter - Linter - DAP
 -- C#: LSP - Formatter
 -- JSON: LSP - Formatter - Linter
 -- CSS: LSP - Formatter
 -- HTML: LSP - Formatter - Linter
--- Rust: LSP - Formatter - Linter
+-- Rust: LSP - Formatter - Linter - DAP
 -- TOML: LSP - Formatter - Linter
 -- YAML: LSP - Formatter - Linter
 
@@ -30,6 +30,7 @@ return {
 			"clangd", -- [LSP] - [C, C++]
 			"clang-format", -- [Formatter] - [C, C++]
 			"cpplint", -- [Linter] - [C, C++]
+			"codelldb", -- [DAP] - [C, C++, Rust]
 			"omnisharp", -- [LSP] - [C#]
 			"csharpier", -- [Formatter] - [C#]
 			"lua-language-server", -- [LSP] - [Lua]

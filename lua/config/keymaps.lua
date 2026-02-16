@@ -27,33 +27,38 @@ keymap.set("n", "<C-M-Right>", ":vertical resize +2<CR>", { desc = "Aumentar anc
 keymap.set("n", "gG", "gg0:normal v<CR>G$", { desc = "Seleccionar todo el archivo" })
 
 -- Mason
-keymap.set("n", "<leader>cm", ":Mason<CR>", { desc = "Mason" })
+keymap.set("n", "<leader>cm", ":Mason<CR>", { desc = "Abrir Mason" })
 
 -- LazyDev
-keymap.set("n", "<leader>l", ":Lazy check<CR>", { desc = "Lazy" })
+keymap.set("n", "<leader>l", ":Lazy check<CR>", { desc = "Verificar Lazy" })
 
 -- NeoTree
-keymap.set("n", "<leader>e", ":Neotree focus<CR>", { desc = "Abrir/Enfocar explorador" })
+keymap.set("n", "<leader>e", ":Neotree focus<CR>", { desc = "Enfocar explorador" })
 
 -- Trouble
-keymap.set("n", "<leader>xx", ":Trouble diagnostics toggle<CR>", { desc = "Diagnostics" })
-keymap.set("n", "<leader>xX", ":Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Buffer Diagnostics" })
-keymap.set("n", "<leader>xf", ":Trouble diagnostics focus<CR>", { desc = "Diagnostics Focus" })
-keymap.set("n", "<leader>xc", ":Trouble diagnostics close<CR>", { desc = "Diagnostics close" })
+keymap.set("n", "<leader>xx", ":Trouble diagnostics toggle<CR>", { desc = "Alternar diagnósticos" })
+keymap.set(
+	"n",
+	"<leader>xX",
+	":Trouble diagnostics toggle filter.buf=0<CR>",
+	{ desc = "Alternar diagnósticos del buffer" }
+)
+keymap.set("n", "<leader>xf", ":Trouble diagnostics focus<CR>", { desc = "Enfocar diagnósticos" })
+keymap.set("n", "<leader>xc", ":Trouble diagnostics close<CR>", { desc = "Cerrar diagnósticos" })
 
 -- Persistence
 keymap.set("n", "<leader>qs", function()
 	require("persistence").load()
-end, { desc = "Restaurar la sesión" })
+end, { desc = "Restaurar sesión" })
 keymap.set("n", "<leader>qS", function()
 	require("persistence").select()
 end, { desc = "Seleccionar sesión" })
 keymap.set("n", "<leader>ql", function()
 	require("persistence").load({ last = true })
-end, { desc = "Cargar la última sesión" })
+end, { desc = "Cargar última sesión" })
 keymap.set("n", "<leader>qd", function()
 	require("persistence").stop()
-end, { desc = "No guardar la sesión al salir" })
+end, { desc = "No guardar sesión al salir" })
 
 -- Bufferline
 keymap.set("n", "<S-M-Left>", ":BufferLineCyclePrev<CR>", { desc = "Ir al buffer anterior" })
@@ -68,7 +73,33 @@ keymap.set("n", "<leader>bd", function()
 	else
 		pcall(cmd, "bdelete " .. buffer_to_delete)
 	end
-end, { desc = "Eliminar el buffer actual" })
+end, { desc = "Eliminar buffer actual" })
+
+-- DAP
+keymap.set("n", "<F5>", function()
+	require("dap").continue()
+end, { desc = "Iniciar/Continuar debug" })
+keymap.set("n", "<S-F5>", function()
+	require("dap").terminate()
+	require("dapui").close()
+	pcall(cmd, "Neotree show")
+	pcall(cmd, "wincmd p")
+end, { desc = "Detener debug" })
+keymap.set("n", "<F10>", function()
+	require("dap").step_over()
+end, { desc = "Saltar (Step Over)" })
+keymap.set("n", "<F11>", function()
+	require("dap").step_into()
+end, { desc = "Entrar (Step Into)" })
+keymap.set("n", "<F12>", function()
+	require("dap").step_out()
+end, { desc = "Salir (Step Out)" })
+keymap.set("n", "<leader>d", function()
+	require("dap").toggle_breakpoint()
+end, { desc = "Alternar breakpoint" })
+keymap.set("n", "<leader>D", function()
+	require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end, { desc = "Establecer breakpoint condicional" })
 
 -- Desactivar "keymaps" predeterminadas
 keymap.set({ "n", "x" }, "gs", "<Nop>")

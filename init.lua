@@ -16,11 +16,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Cargar configuración
+require("config.loader")
+
 -- Cargar plugins
 require("lazy").setup({
 	spec = { import = "plugins" },
 	change_detection = { notify = false },
 })
-
--- Cargar configuración
-require("config.loader")
