@@ -7,6 +7,7 @@ return {
 			formatters_by_ft = {
 				astro = { "prettier" },
 				bash = { "shellharden", "shfmt" },
+				zsh = { "beautysh" },
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				cs = { "csharpier" },
@@ -23,6 +24,7 @@ return {
 				rust = { "rustfmt" },
 				toml = { "taplo" },
 				yaml = { "prettier" },
+				http = { "kulala-fmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

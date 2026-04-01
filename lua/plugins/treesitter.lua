@@ -16,6 +16,7 @@ return {
 				"css",
 				"diff",
 				"dockerfile",
+				"graphql",
 				"gitignore",
 				"glsl",
 				"html",
@@ -45,7 +46,6 @@ return {
 			sync_install = false,
 			-- Instalar automáticamente si abres un archivo nuevo
 			auto_install = true,
-
 			highlight = { enable = true },
 			indent = { enable = true },
 			modules = {},

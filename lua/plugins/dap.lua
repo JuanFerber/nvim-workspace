@@ -1,5 +1,59 @@
 return {
 	"mfussenegger/nvim-dap",
+	keys = {
+		{
+			"<leader>d<F5>",
+			function()
+				require("dap").continue()
+			end,
+			desc = "Iniciar/Continuar debug",
+		},
+		{
+			"<leader>d<S-F5>",
+			function()
+				require("dap").terminate()
+				require("dapui").close()
+				pcall(vim.cmd, "Neotree show")
+				pcall(vim.cmd, "wincmd p")
+			end,
+			desc = "Detener debug",
+		},
+		{
+			"<leader>d<F10>",
+			function()
+				require("dap").step_over()
+			end,
+			desc = "Saltar (Step Over)",
+		},
+		{
+			"<leader>d<F11>",
+			function()
+				require("dap").step_into()
+			end,
+			desc = "Entrar (Step Into)",
+		},
+		{
+			"<leader>d<F12>",
+			function()
+				require("dap").step_out()
+			end,
+			desc = "Salir (Step Out)",
+		},
+		{
+			"<leader>dd",
+			function()
+				require("dap").toggle_breakpoint()
+			end,
+			desc = "Alternar breakpoint",
+		},
+		{
+			"<leader>dD",
+			function()
+				require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+			end,
+			desc = "Establecer breakpoint condicional",
+		},
+	},
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
 		"nvim-neotest/nvim-nio",

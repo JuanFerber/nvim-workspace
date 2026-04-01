@@ -1,6 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",
+	event = { "InsertEnter", "CmdlineEnter" },
 	dependencies = {
 		"hrsh7th/cmp-buffer", -- Tomar el texto del archivo actual
 		"hrsh7th/cmp-path", -- Rutas de archivos
@@ -92,6 +92,24 @@ return {
 				["<C-b>"] = cmp.mapping.scroll_docs(-4), -- Scroll para arriba
 				["<C-f>"] = cmp.mapping.scroll_docs(4), -- Scroll para abajo
 				["<C-Space>"] = cmp.mapping.complete(), -- Forzar autocompletado
+				["<Tab>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_next_item()
+					elseif luasnip.expand_or_locally_jumpable() then
+						luasnip.expand_or_jump()
+					else
+						fallback()
+					end
+				end, { "i", "s" }),
+				["<S-Tab>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_prev_item()
+					elseif luasnip.jumpable(-1) then
+						luasnip.jump(-1)
+					else
+						fallback()
+					end
+				end, { "i", "s" }),
 				["<C-e>"] = cmp.mapping.abort(), -- Cancelar
 				["<CR>"] = cmp.mapping.confirm({ select = false }), -- Enter para confirmar
 			}),
@@ -103,6 +121,56 @@ return {
 				{ name = "luasnip" }, -- Snippets
 				{ name = "buffer" }, -- Texto del archivo
 				{ name = "path" }, -- Rutas del sistema
+			}),
+		})
+
+		-- Configuración para la búsqueda (/)
+		cmp.setup.cmdline("/", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = {
+				{ name = "buffer" },
+			},
+		})
+
+		-- Configuración para la línea de comandos (:)
+		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline({
+				["<Tab>"] = {
+					c = function(fallback)
+						if cmp.visible() then
+							cmp.select_next_item()
+						else
+							fallback()
+						end
+					end,
+				},
+				["<S-Tab>"] = {
+					c = function(fallback)
+						if cmp.visible() then
+							cmp.select_prev_item()
+						else
+							fallback()
+						end
+					end,
+				},
+				["<S-CR>"] = {
+					c = function(fallback)
+						if cmp.visible() then
+							cmp.confirm({ select = false })
+						else
+							fallback()
+						end
+					end,
+				},
+				["<CR>"] = {
+					c = function(fallback)
+						cmp.close()
+						fallback()
+					end,
+				},
+			}),
+			sources = cmp.config.sources({
+				{ name = "cmdline" },
 			}),
 		})
 	end,

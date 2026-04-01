@@ -17,6 +17,9 @@
 
 return {
 	"mason-org/mason.nvim",
+	keys = {
+		{ "<leader>m", ":Mason<CR>", desc = "Mason" },
+	},
 	opts_extend = { "ensure_installed" },
 	opts = {
 		ensure_installed = {
@@ -27,6 +30,7 @@ return {
 			"shfmt", -- [Formatter] - [Bash]
 			"shellharden", -- [Formatter] - [Bash]
 			"shellcheck", -- [Linter] - [Bash]
+			"beautysh", -- [Formatter] - [Zsh]
 			"clangd", -- [LSP] - [C, C++]
 			"clang-format", -- [Formatter] - [C, C++]
 			"cpplint", -- [Linter] - [C, C++]
@@ -51,6 +55,7 @@ return {
 			"taplo", -- [LSP - Formatter - Linter] - [TOML]
 			"yaml-language-server", -- [LSP] - [YAML]
 			"yamllint", -- [Linter] - [YAML]
+			"kulala-fmt", -- [Formatter - Linter] - [HTTP]
 		},
 	},
 	config = function(_, opts)

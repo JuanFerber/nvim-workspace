@@ -17,3 +17,4 @@ opt.expandtab = true -- Convierte tabs en espacios
 opt.softtabstop = 2 -- Comportamiento del tab al editar
 opt.winblend = 0 -- Quita cualquier tipo de transparencia
 opt.pumblend = 0 -- ... en las ventanas
+opt.signcolumn = "yes:2" -- Muestra la columna de signos con 2 de ancho

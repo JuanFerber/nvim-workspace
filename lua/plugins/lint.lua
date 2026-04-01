@@ -6,6 +6,7 @@ return {
 		lint.linters_by_ft = {
 			astro = { "eslint_d" },
 			bash = { "shellcheck" },
+			zsh = { "zsh" },
 			c = { "cpplint" },
 			cpp = { "cpplint" },
 			lua = { "luacheck" },

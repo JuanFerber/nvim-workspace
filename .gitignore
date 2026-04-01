@@ -1,1 +1,9 @@
+# Generales
 lazy-lock.json
+.gitignore
+
+# Gemini
+AI_INSTRUCTIONS.md
+COMMIT_CONVENTIONS.md
+GEMINI.md
+SECURITY.md

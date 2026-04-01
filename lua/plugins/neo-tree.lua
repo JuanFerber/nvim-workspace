@@ -1,5 +1,8 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
+	keys = {
+		{ "<leader>e", ":Neotree focus<CR>", desc = "NeoTree" },
+	},
 	branch = "v3.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -14,8 +17,9 @@ return {
 			filesystem = {
 				filtered_items = {
 					visible = true,
-					hide_dotfiles = false,
-					hide_gitignored = false,
+					hide_dotfiles = true,
+					hide_gitignored = true,
+					show_hidden_count = false,
 				},
 				follow_current_file = {
 					enabled = true, -- Enfocar el archivo que estás editando en el árbol
