@@ -18,6 +18,27 @@ return {
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
+		local types = require("luasnip.util.types")
+
+		-- Configurar opciones visuales
+		luasnip.config.setup({
+			ext_opts = {
+				-- Nodos normales de inserción
+				[types.insertNode] = {
+					active = {
+						virt_text = { { " 💡 (Tab para saltar)", "WarningMsg" } },
+						hl_group = "Visual",
+					},
+				},
+				-- Nodos de opción
+				[types.choiceNode] = {
+					active = {
+						virt_text = { { " 💡 (Tab para opciones)", "WarningMsg" } },
+						hl_group = "Visual",
+					},
+				},
+			},
+		})
 
 		-- Cargar snippets tipo VSCode
 		require("luasnip.loaders.from_vscode").lazy_load()
@@ -111,7 +132,7 @@ return {
 					end
 				end, { "i", "s" }),
 				["<C-e>"] = cmp.mapping.abort(), -- Cancelar
-				["<CR>"] = cmp.mapping.confirm({ select = false }), -- Enter para confirmar
+				["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }), -- Enter para confirmar
 			}),
 
 			-- Fuentes de autocompletado
