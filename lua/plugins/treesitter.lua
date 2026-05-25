@@ -24,6 +24,7 @@ return {
 				"javascript",
 				"jinja",
 				"json",
+				"julia",
 				"kdl",
 				"lua",
 				"make",

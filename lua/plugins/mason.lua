@@ -14,6 +14,7 @@
 -- Rust: LSP - Formatter - Linter - DAP
 -- TOML: LSP - Formatter - Linter
 -- YAML: LSP - Formatter - Linter
+-- TailwindCSS: LSP - Formatter
 
 return {
 	"mason-org/mason.nvim",
@@ -56,6 +57,8 @@ return {
 			"yaml-language-server", -- [LSP] - [YAML]
 			"yamllint", -- [Linter] - [YAML]
 			"kulala-fmt", -- [Formatter - Linter] - [HTTP]
+			"tailwindcss-language-server", -- [LSP] - [TailwindCSS]
+			"rustywind", -- [Formatter] - [TailwindCSS]
 		},
 	},
 	config = function(_, opts)

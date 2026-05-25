@@ -19,6 +19,10 @@ return {
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
 		local types = require("luasnip.util.types")
+		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+
+		-- Autocompletado de paréntesis para las funciones
+		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 		-- Configurar opciones visuales
 		luasnip.config.setup({

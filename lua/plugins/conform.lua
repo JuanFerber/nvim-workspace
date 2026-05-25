@@ -5,7 +5,7 @@ return {
 		local conform = require("conform")
 		conform.setup({
 			formatters_by_ft = {
-				astro = { "prettier" },
+				astro = { "prettier", "rustywind" },
 				bash = { "shellharden", "shfmt" },
 				zsh = { "beautysh" },
 				c = { "clang-format" },
@@ -15,11 +15,11 @@ return {
 				python = { "black" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
-				javascriptreact = { "prettier" },
-				typescriptreact = { "prettier" },
+				javascriptreact = { "prettier", "rustywind" },
+				typescriptreact = { "prettier", "rustywind" },
 				json = { "prettier" },
-				css = { "prettier" },
-				html = { "prettier" },
+				css = { "prettier", "rustywind" },
+				html = { "prettier", "rustywind" },
 				markdown = { "prettier" },
 				rust = { "rustfmt" },
 				toml = { "taplo" },

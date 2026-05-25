@@ -4,6 +4,12 @@ local keymap = vim.keymap
 keymap.set("n", "<C-s>", ":w<CR>", { desc = "Guardar cambios" })
 keymap.set("i", "<C-s>", "<Esc>:w<CR>", { desc = "Guardar cambios e ir al modo normal" })
 keymap.set("n", "<Esc>", ":nohlsearch<CR>", { desc = "Limpiar resaltado de búsqueda" })
+keymap.set("n", "<S-Esc>", function()
+	local has_luasnip, luasnip = pcall(require, "luasnip")
+	if has_luasnip and luasnip.in_snippet() then
+		luasnip.unlink_current()
+	end
+end, { desc = "Cancelar snippet activo" })
 
 -- Reemplazo
 keymap.set("x", "<leader>r", ":s/\\%V", { desc = "Estructura de reemplazo" })

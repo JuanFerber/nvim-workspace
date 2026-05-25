@@ -4,6 +4,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope.nvim",
 	},
+	event = { "BufReadPost", "BufNewFile" },
 	keys = {
 		{ "<leader>tt", ":TodoTelescope<CR>", desc = "Abrir buscador de tareas" },
 	},

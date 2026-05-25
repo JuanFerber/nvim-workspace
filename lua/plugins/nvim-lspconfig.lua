@@ -119,6 +119,8 @@ return {
 			"cssls", -- CSS
 			"html", -- HTML
 			"marksman", -- MD
+			"julials", -- Julia
+			"tailwindcss", -- TailwindCSS
 		}) do
 			vim.lsp.config(server, {
 				on_attach = on_attach,
@@ -149,6 +151,7 @@ return {
 				"rust_analyzer",
 				"taplo",
 				"yamlls",
+				"tailwindcss",
 			},
 			automatic_enable = true,
 		})
