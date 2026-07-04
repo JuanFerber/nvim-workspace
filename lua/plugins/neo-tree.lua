@@ -6,8 +6,8 @@ return {
 	branch = "v3.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
+		"nvim-tree/nvim-web-devicons",
 	},
 	lazy = false,
 	config = function()

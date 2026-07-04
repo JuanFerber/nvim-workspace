@@ -19,7 +19,7 @@
 return {
 	"mason-org/mason.nvim",
 	keys = {
-		{ "<leader>m", ":Mason<CR>", desc = "Mason" },
+		{ "<leader>M", ":Mason<CR>", desc = "Mason" },
 	},
 	opts_extend = { "ensure_installed" },
 	opts = {
@@ -63,8 +63,9 @@ return {
 	},
 	config = function(_, opts)
 		local m = require("mason")
-		m.setup(opts)
 		local mr = require("mason-registry")
+		m.setup(opts)
+
 		mr:on("package:install:success", function()
 			vim.defer_fn(function()
 				require("lazy.core.handler.event").trigger({

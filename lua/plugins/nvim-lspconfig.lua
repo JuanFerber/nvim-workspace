@@ -108,18 +108,28 @@ return {
 			},
 		})
 
+		-- JS - TS
+		vim.lsp.config("ts_ls", {
+			on_attach = on_attach,
+			capabilities = capabilities,
+			init_options = {
+				preferences = {
+					importModuleSpecifierPreference = "non-relative",
+					importModuleSpecifierEnding = "minimal",
+				},
+			},
+		})
+
 		-- Servidores con configuración por defecto
 		for _, server in ipairs({
 			"astro", -- Astro
 			"omnisharp", -- C#
 			"lua_ls", -- Lua
 			"pyright", -- Python
-			"ts_ls", -- JS - TS
 			"jsonls", -- JSON
 			"cssls", -- CSS
 			"html", -- HTML
 			"marksman", -- MD
-			"julials", -- Julia
 			"tailwindcss", -- TailwindCSS
 		}) do
 			vim.lsp.config(server, {

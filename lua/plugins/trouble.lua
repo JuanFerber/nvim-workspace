@@ -1,5 +1,6 @@
 return {
 	"folke/trouble.nvim",
+	lazy = false,
 	keys = {
 		{ "<leader>xx", ":Trouble diagnostics toggle<CR>", desc = "Alternar diagnósticos" },
 		{ "<leader>xX", ":Trouble diagnostics toggle filter.buf=0<CR>", desc = "Alternar diagnósticos del buffer" },

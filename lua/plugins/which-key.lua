@@ -33,5 +33,18 @@ return {
 			{ "<leader>t", group = "ToDo" },
 			{ "<leader>x", group = "Trouble" },
 		})
+
+		wk.add({
+			{ "<leader>l", group = "VimTeX" },
+			{ "<leader>ll", desc = "Compilar (Iniciar/Parar)" },
+			{ "<leader>lv", desc = "Ver PDF en Zathura" },
+			{ "<leader>li", desc = "Información de VimTeX" },
+			{ "<leader>le", desc = "Ver Errores de sintaxis" },
+			{ "<leader>lc", desc = "Limpiar basura (.aux, .log)" },
+			{ "<leader>lC", desc = "Limpieza profunda" },
+			{ "<leader>lk", desc = "Detener compilación" },
+			{ "<leader>lt", desc = "Abrir Índice (TOC)" },
+			{ "<leader>lq", desc = "Ver Log de LaTeX" },
+		})
 	end,
 }

@@ -1,4 +1,8 @@
 local keymap = vim.keymap
+local utils_buffers = require("utils.buffers")
+
+-- Desactivar "keymaps" predeterminadas
+keymap.set({ "n", "x" }, "gs", "<Nop>")
 
 -- Globales
 keymap.set("n", "<C-s>", ":w<CR>", { desc = "Guardar cambios" })
@@ -20,6 +24,17 @@ keymap.set("n", "<C-Down>", "<C-w>j", { desc = "Ir a la ventana de abajo", remap
 keymap.set("n", "<C-Up>", "<C-w>k", { desc = "Ir a la ventana de arriba", remap = true })
 keymap.set("n", "<C-Right>", "<C-w>l", { desc = "Ir a la ventana de la derecha", remap = true })
 
+-- Movimiento entre buffers
+vim.keymap.set("n", "<S-M-Left>", function()
+	utils_buffers.safe_cycle_buffer("prev")
+end, { desc = "Ir al buffer anterior", silent = true })
+vim.keymap.set("n", "<S-M-Right>", function()
+	utils_buffers.safe_cycle_buffer("next")
+end, { desc = "Ir al buffer siguiente", silent = true })
+vim.keymap.set("n", "<S-M-Down>", function()
+	utils_buffers.safe_close_buffer()
+end, { desc = "Eliminar buffer actual", silent = true })
+
 -- Redimensionar ventanas
 keymap.set("n", "<C-M-Up>", "<CMD>resize +2<CR>", { desc = "Aumentar altura" })
 keymap.set("n", "<C-M-Down>", "<CMD>resize -2<CR>", { desc = "Disminuir altura" })
@@ -30,7 +45,4 @@ keymap.set("n", "<C-M-Right>", ":vertical resize +2<CR>", { desc = "Aumentar anc
 keymap.set("n", "gG", "gg0:normal v<CR>G$", { desc = "Seleccionar todo el archivo" })
 
 -- LazyDev
-keymap.set("n", "<leader>l", ":Lazy check<CR>", { desc = "LazyDev" })
-
--- Desactivar "keymaps" predeterminadas
-keymap.set({ "n", "x" }, "gs", "<Nop>")
+keymap.set("n", "<leader>L", ":Lazy check<CR>", { desc = "LazyDev" })

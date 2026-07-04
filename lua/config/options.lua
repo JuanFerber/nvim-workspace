@@ -23,3 +23,5 @@ opt.foldmethod = "expr" -- Método de plegado basado en expresiones
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Calcular los pliegues con Treesitter
 opt.foldlevelstart = 99 -- Hasta que nivel de profundidad se despliegan los bloques al abrir el archivo
 opt.foldlevel = 99 -- Control de nivel de profundidad para evitar pliegues no intencionales
+opt.smartindent = true -- Activa la indentación inteligente
+opt.autoindent = true -- Copia la indentación de la línea actual a la nueva
