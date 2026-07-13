@@ -34,6 +34,13 @@ return {
 			desc = "Inspeccionar petición",
 		},
 		{
+			"<leader>ka",
+			function()
+				require("kulala").run_all()
+			end,
+			desc = "Enviar todas las peticiones",
+		},
+		{
 			"<leader>kq",
 			function()
 				require("kulala").close()
